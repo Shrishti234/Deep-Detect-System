@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try It Now - Deep Fake Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#eef2f7;">
+    <header>
+        <div class="navbar-container">
+            <span class="navbar-title">Deep Fake Detection</span>
+            <nav class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+    <main style="max-width:600px; margin:60px auto;">
+        <section id="upload" style="padding:32px; border-radius:16px; background:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.10);">
+            <h2 style="text-align:center; color:#0078d7; margin-bottom:30px;">Try It Now</h2>
+            <form id="uploadForm" style="display:flex; flex-direction:column; gap:18px;">
+                <label for="fileInput" style="font-size:1.1rem;">Upload Image or Video:</label>
+                <input type="file" id="fileInput" accept="image/*,video/*" required style="margin-bottom:8px;">
+                <div id="preview" style="margin-bottom:12px; text-align:center;"></div>
+                <button type="submit">Analyze</button>
+                <button type="button" id="resetBtn" style="background:#eee; color:#333; border:none; padding:8px; border-radius:5px; cursor:pointer; font-size:15px; margin-top:8px;">Reset</button>
+            </form>
+            <div id="progress" class="hidden" style="margin:18px 0; text-align:center;">
+                <span id="progressText">Analyzing...</span>
+                <div style="width:100%; background:#eee; border-radius:8px; height:8px; margin-top:8px;">
+                    <div id="progressBar" style="width:0%; height:8px; background:#0078d7; border-radius:8px;"></div>
+                </div>
+            </div>
+            <div id="result" style="margin-top:18px; text-align:center; font-size:18px;"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+    // Only allow access if logged in
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = 'login.html';
+    }
+
+    // Preview uploaded file
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById('preview');
+        preview.innerHTML = '';
+        if (file) {
+            if (file.type.startsWith('image/')) {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                img.style.maxWidth = '180px';
+                img.style.borderRadius = '8px';
+                preview.appendChild(img);
+            } else if (file.type.startsWith('video/')) {
+                const video = document.createElement('video');
+                video.src = URL.createObjectURL(file);
+                video.controls = true;
+                video.style.maxWidth = '220px';
+                video.style.borderRadius = '8px';
+                preview.appendChild(video);
+            }
+        }
+    });
+
+    // Form submit logic with progress bar and result
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('result').textContent = '';
+        document.getElementById('progress').classList.remove('hidden');
+        let progress = 0;
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        progressBar.style.width = '0%';
+        progressText.textContent = 'Analyzing...';
+        const interval = setInterval(() => {
+            progress += 10;
+            progressBar.style.width = progress + '%';
+            if (progress >= 100) {
+                clearInterval(interval);
+                document.getElementById('progress').classList.add('hidden');
+                // Simulate result
+                const isFake = Math.random() > 0.5;
+                const confidence = (Math.random() * 40 + 60).toFixed(2);
+                if (isFake) {
+                    document.getElementById('result').innerHTML = `<span style='color:red;font-weight:bold;'>This is a Fake!</span>`;
+                } else {
+                    document.getElementById('result').innerHTML = `<span style='color:green;font-weight:bold;'>This is Real!</span>`;
+                }
+            }
+        }, 180);
+    });
+
+    // Reset button logic
+    document.getElementById('resetBtn').addEventListener('click', function() {
+        document.getElementById('uploadForm').reset();
+        document.getElementById('preview').innerHTML = '';
+        document.getElementById('result').textContent = '';
+        document.getElementById('progress').classList.add('hidden');
+        document.getElementById('progressBar').style.width = '0%';
+    });
+    </script>
+    <script>
+        // Only allow access if logged in
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

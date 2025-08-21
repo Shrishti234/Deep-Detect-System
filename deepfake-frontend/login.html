@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Deep Fake Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#eef2f7;">
+    <header>
+        <div class="navbar-container">
+            <span class="navbar-title">Deep Fake Detection</span>
+            <nav class="navbar-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+    <main style="max-width:400px; margin:60px auto;">
+        <section style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:32px; margin-bottom:32px;">
+            <h1 style="text-align:center; color:#0078d7; margin-bottom:30px;">Login</h1>
+            <form id="loginForm" style="display:flex; flex-direction:column; gap:18px;">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" style="background:#0078d7; color:#fff; border:none; padding:10px; border-radius:5px; cursor:pointer; font-size:16px;">Login</button>
+            </form>
+            <div id="loginMsg" style="text-align:center; color:green; margin-top:20px;"></div>
+        </section>
+        <section id="upload" style="padding:32px; border-radius:12px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.08); display:none;">
+            <h2 style="text-align:center; color:#0078d7; margin-bottom:30px;">Try It Now</h2>
+            <form id="uploadForm">
+                <label for="fileInput" style="font-size:1.1rem;">Upload Image or Video:</label>
+                <input type="file" id="fileInput" accept="image/*,video/*" required style="margin-bottom:16px;">
+                <button type="submit">Analyze</button>
+            </form>
+            <div id="progress" class="hidden">Analyzing...</div>
+            <div id="result"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'tryitnow.html';
+        });
+    // No need to show Try It Now section here
+    </script>
+</body>
+</html>
