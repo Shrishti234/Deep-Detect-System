@@ -5,6 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Deep Fake Detection</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Responsive Navbar */
+        .navbar-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .navbar-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0078d7;
+        }
+        .navbar-links {
+            display: flex;
+            gap: 24px;
+        }
+        .navbar-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .navbar-links a:hover {
+            color: #556b2f;
+        }
+        @media (max-width: 700px) {
+            .navbar-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px 8px;
+            }
+            .navbar-title {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+            }
+            .navbar-links {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            .navbar-links a {
+                font-size: 1rem;
+                padding: 6px 0;
+            }
+        }
+    </style>
 </head>
 <body style="background:#eef2f7;">
     <header>
@@ -19,26 +71,33 @@
             </nav>
         </div>
     </header>
-    <main style="max-width:400px; margin:60px auto;">
+    <main style="max-width:400px; margin:40px auto;">
         <section style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:32px;">
-            <h1 style="text-align:center; color:#0078d7; margin-bottom:30px;">Register</h1>
-            <form id="registerForm" style="display:flex; flex-direction:column; gap:18px;">
+            <h1 style="color:#0078d7; margin-bottom:24px;">Register</h1>
+            <form>
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required style="width:100%;margin-bottom:16px;">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required style="width:100%;margin-bottom:16px;">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" style="width:100%;margin-bottom:16px;" placeholder="Enter 10 digit number">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit" style="background:#0078d7; color:#fff; border:none; padding:10px; border-radius:5px; cursor:pointer; font-size:16px;">Register</button>
+                <input type="password" id="password" name="password" required style="width:100%;margin-bottom:24px;">
+                <button type="submit" style="background:#0078d7; color:#fff; padding:10px 24px; border-radius:6px; border:none; font-size:16px;">Register</button>
             </form>
-            <div id="registerMsg" style="text-align:center; color:green; margin-top:20px;"></div>
         </section>
     </main>
     <script>
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('registerMsg').textContent = 'Registration successful!';
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert("Registration successful! Redirecting to login...");
+                window.location.href = "login.html";
+            });
+        }
+    });
     </script>
 </body>
 </html>

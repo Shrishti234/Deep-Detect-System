@@ -5,8 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - Deep Fake Detection</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .features-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px 0 rgba(85,107,47,0.18), 0 2px 8px rgba(0,120,215,0.10);
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+            transition: box-shadow 0.2s;
+        }
+        .features-card:hover {
+            box-shadow: 0 8px 32px 0 rgba(85,107,47,0.28), 0 4px 16px rgba(0,120,215,0.18);
+        }
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            color: #0078d7;
+            display: inline-block;
+        }
+    </style>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body style="background:#eef2f7;">
+<body style="background: linear-gradient(135deg, #f7f6ee 0%, #bfae7c 60%, #eef2f7 100%); margin:0;">
     <header>
         <div class="navbar-container">
             <span class="navbar-title">Deep Fake Detection</span>
@@ -20,32 +42,42 @@
         </div>
     </header>
     <main style="max-width:900px; margin:40px auto;">
-        <h1 style="text-align:center; color:#0078d7; margin-bottom:30px;">Key Features</h1>
-        <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center;">
-            <div style="flex:1 1 220px; min-width:220px; max-width:300px; background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:28px;">
-                <h2 style="color:#0078d7; font-size:20px; margin-bottom:10px;">Image/Video Upload</h2>
-                <p>Users can upload images or videos for analysis with a simple, secure interface.</p>
+        <section id="features" style="margin-bottom:40px;">
+            <h2 style="color:#0078d7; text-align:center; margin-bottom:24px;">Key Features</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
+                <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-upload"></i></span>
+                    <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">Image/Video Upload</h3>
+                    <p>Upload images or videos for instant analysis.</p>
+                </div>
+                <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-robot"></i></span>
+                    <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">AI-Powered Detection</h3>
+                    <p>Advanced algorithms provide confidence scores for authenticity.</p>
+                </div>
+                <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-desktop"></i></span>
+                    <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">User-Friendly Dashboard</h3>
+                    <p>Modern, responsive design for all devices.</p>
+                </div>
+                <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-vial"></i></span>
+                    <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">Demo Mode</h3>
+                    <p>Try out the system with simulated results.</p>
+                </div>
             </div>
-            <div style="flex:1 1 220px; min-width:220px; max-width:300px; background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:28px;">
-                <h2 style="color:#0078d7; font-size:20px; margin-bottom:10px;">Instant Analysis</h2>
-                <p>Get quick feedback on the authenticity of your uploaded media using advanced detection logic.</p>
-            </div>
-            <div style="flex:1 1 220px; min-width:220px; max-width:300px; background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:28px;">
-                <h2 style="color:#0078d7; font-size:20px; margin-bottom:10px;">Confidence Score</h2>
-                <p>Each result includes a confidence percentage to help you understand the likelihood of a deep fake.</p>
-            </div>
-            <div style="flex:1 1 220px; min-width:220px; max-width:300px; background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:28px;">
-                <h2 style="color:#0078d7; font-size:20px; margin-bottom:10px;">Modern UI</h2>
-                <p>Clean, responsive design for a seamless experience on any device.</p>
-            </div>
-            <div style="flex:1 1 220px; min-width:220px; max-width:300px; background:#fff; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:28px;">
-                <h2 style="color:#0078d7; font-size:20px; margin-bottom:10px;">Demo Mode</h2>
-                <p>Simulated results for demonstration; ready for backend AI integration.</p>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:40px;">
-            <a href="index.html" style="background:#0078d7; color:#fff; padding:12px 32px; border-radius:6px; text-decoration:none; font-size:18px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">Back to Home</a>
-        </div>
+        </section>
+        <!-- Try It Now section added and styled -->
+        <section id="try-now" style="background:#fff; border-radius:12px; box-shadow:0 4px 24px 0 rgba(85,107,47,0.18), 0 2px 8px rgba(0,120,215,0.10); padding:32px; margin-bottom:40px; text-align:center;">
+            <span style="font-size:38px; color:#0078d7; margin-bottom:12px; display:inline-block;">
+                <i class="fas fa-play-circle"></i>
+            </span>
+            <h2 style="color:#0078d7; margin-bottom:18px;">Try It Now</h2>
+            <p style="font-size:1.1rem; color:#333; margin-bottom:24px;">
+                Experience our Deep Fake Detection system in demo mode. Upload your image or video and see instant results powered by AI!
+            </p>
+            <a href="login.html" style="background:#0078d7; color:#fff; padding:14px 36px; border-radius:8px; text-decoration:none; font-size:1.2rem; font-weight:bold; box-shadow:0 2px 8px rgba(0,0,0,0.10);">Try Now</a>
+        </section>
     </main>
 </body>
 </html>

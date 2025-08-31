@@ -5,10 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deep Fake Detection</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .features-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+            transition: box-shadow 0.2s;
+        }
+        .features-card:hover {
+            box-shadow: 0 4px 16px rgba(0,120,215,0.12);
+        }
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            color: #0078d7;
+            display: inline-block;
+        }
+        /* Navbar styles */
+        .navbar-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff; /* Changed to white */
+            text-align: center;
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .navbar-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0 18px 0;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .navbar-links {
+            margin-top: 0;
+            display: flex;
+            gap: 24px;
+        }
+        .navbar-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .navbar-links a:hover {
+            color: #556b2f;
+        }
+        /* Responsive Navbar */
+        @media (max-width: 700px) {
+            .navbar-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px 8px;
+            }
+            .navbar-title {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+                text-align: left;
+            }
+            .navbar-links {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            .navbar-links a {
+                font-size: 1rem;
+                padding: 6px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
     <header>
         <div class="navbar-container">
             <span class="navbar-title">Deep Fake Detection</span>
@@ -22,7 +99,8 @@
         </div>
     </header>
     <main style="max-width:900px; margin:40px auto;">
-        <section id="hero" style="padding:40px 32px; border-radius:12px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.08); margin-bottom:40px; display:flex; flex-wrap:wrap; align-items:center; gap:32px;">
+        <!-- Removed background:#fff from section style -->
+        <section id="hero" style="padding:40px 32px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); margin-bottom:40px; display:flex; flex-wrap:wrap; align-items:center; gap:32px;">
             <div style="flex:2; min-width:220px; text-align:left;">
                 <h1 style="color:#0078d7; font-size:2.5rem; margin-bottom:18px;">Deep Fake Detection System</h1>
                 <p style="font-size:1.2rem; color:#333; margin-bottom:24px;">Empowering users to detect and analyze deep fake images and videos with AI-powered technology. Protect yourself from misinformation and identity theft with our easy-to-use platform.</p>
@@ -33,36 +111,53 @@
                 <div style="font-size:1.1rem; color:#0078d7; font-weight:bold;">AI Powered</div>
             </div>
         </section>
-        <section id="about" style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:32px; margin-bottom:40px;">
+        <!-- Fixed style attribute syntax error in about section -->
+        <section id="about" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:32px; margin-bottom:40px;">
+            <div style="text-align:center; margin-bottom:18px;">
+                <span style="font-size:38px; color:#0078d7; margin-bottom:8px; display:inline-block;">
+                    <i class="fas fa-user-shield"></i>
+                </span>
+            </div>
             <h2 style="color:#0078d7; text-align:center; margin-bottom:24px;">About Deep Fake Detection</h2>
-            <p style="font-size:1.1rem; color:#333; max-width:700px; margin:0 auto; text-align:center;">This project is a simple web application designed to help users detect possible deep fakes in images and videos. Deep fakes are synthetic media in which a person in an existing image or video is replaced with someone else's likeness using artificial intelligence. They can be used for entertainment, but also pose risks such as misinformation and identity theft.</p>
-            <!-- Features list removed as requested -->
-            <p style="font-size:1.05rem; text-align:center;"><strong>Note:</strong> This demo uses simulated results. For real-world detection, integration with a backend AI model is required.</p>
+            <p style="font-size:1.1rem; color:#333; max-width:700px; margin:0 auto; text-align:center;">
+                This project is a simple web application designed to help users detect possible deep fakes in images and videos. Deep fakes are synthetic media in which a person in an existing image or video is replaced with someone else's likeness using artificial intelligence. They can be used for entertainment, but also pose risks such as misinformation and identity theft.
+            </p>
+            <p style="font-size:1.05rem; text-align:center; margin-top:18px;">
+                <strong>Note:</strong> This demo uses simulated results. For real-world detection, integration with a backend AI model is required.
+            </p>
         </section>
-
         <section id="features" style="margin-bottom:40px;">
             <h2 style="color:#0078d7; text-align:center; margin-bottom:24px;">Key Features</h2>
             <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
                 <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-upload"></i></span>
                     <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">Image/Video Upload</h3>
                     <p>Upload images or videos for instant analysis.</p>
                 </div>
                 <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-robot"></i></span>
                     <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">AI-Powered Detection</h3>
                     <p>Advanced algorithms provide confidence scores for authenticity.</p>
                 </div>
                 <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-desktop"></i></span>
                     <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">User-Friendly Dashboard</h3>
                     <p>Modern, responsive design for all devices.</p>
                 </div>
                 <div class="features-card" style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                    <span class="feature-icon"><i class="fas fa-vial"></i></span>
                     <h3 style="color:#0078d7; font-size:18px; margin-bottom:10px;">Demo Mode</h3>
                     <p>Try out the system with simulated results.</p>
                 </div>
             </div>
         </section>
-
-        <section id="how-it-works" style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:32px; margin-bottom:40px;">
+        <!-- Fixed style attribute syntax error in how-it-works section -->
+        <section id="how-it-works" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:32px; margin-bottom:40px;">
+            <div style="text-align:center; margin-bottom:18px;">
+                <span style="font-size:38px; color:#0078d7; margin-bottom:8px; display:inline-block;">
+                    <i class="fas fa-lightbulb"></i>
+                </span>
+            </div>
             <h2 style="color:#0078d7; text-align:center; margin-bottom:24px;">How It Works</h2>
             <ol style="font-size:1.1rem; color:#333; max-width:700px; margin:0 auto;">
                 <li>Register or login to your account.</li>
@@ -71,16 +166,16 @@
                 <li>Review results and take action as needed.</li>
             </ol>
         </section>
-
-
         <section id="info" style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center;">
-            <div style="flex:1 1 260px; min-width:260px; max-width:400px; background:#f9f9fc; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); padding:24px;">
+            <div style="flex:1 1 260px; min-width:260px; max-width:400px; background:#f9f9fc; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); padding:24px; text-align:center;">
+                <span style="font-size:38px; color:#0078d7; margin-bottom:12px; display:inline-block;">
+                    <i class="fas fa-envelope"></i>
+                </span>
                 <h2 style="color:#0078d7;">Contact</h2>
                 <p>Questions, feedback, or want to collaborate?</p>
                 <a href="contact.html">Contact Form</a>
             </div>
         </section>
     </main>
-    
 </body>
 </html>
