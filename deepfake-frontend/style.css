@@ -30,27 +30,33 @@
 }
 /* Key Features Card Design & Animation */
 .features-card {
-    background: linear-gradient(135deg, #f9f9fc 60%, #e0f7fa 100%);
-    border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(67,206,162,0.10), 0 1.5px 8px rgba(24,90,157,0.08);
-    padding: 28px;
-    transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(135deg, #f7f6ee 0%, #bfae7c 60%, #eef2f7 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(85,107,47,0.18), 0 2px 8px rgba(0,120,215,0.10);
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s, transform 0.2s;
     border: 1.5px solid #43cea2;
-    cursor: pointer;
-    opacity: 0;
-    animation: cardFadeIn 0.8s forwards;
 }
 .features-card:hover {
-    transform: translateY(-8px) scale(1.04);
-    box-shadow: 0 8px 32px rgba(67,206,162,0.18), 0 2px 12px rgba(24,90,157,0.12);
-    border-color: #185a9d;
+    box-shadow: 0 8px 32px 0 rgba(85,107,47,0.28), 0 4px 16px rgba(0,120,215,0.18);
+    transform: translateY(-4px) scale(1.03);
+    background: linear-gradient(135deg, #eef2f7 0%, #43cea2 60%, #bfae7c 100%);
 }
-@keyframes cardFadeIn {
-    from { opacity: 0; transform: translateY(30px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Example for other tokens/cards (if you use .token-card or similar) */
+.token-card {
+    background: linear-gradient(135deg, #bfae7c 0%, #43cea2 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(67,206,162,0.18), 0 2px 8px rgba(24,90,157,0.10);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1.5px solid #0078d7;
+    color: #185a9d;
 }
+
 /* Navbar container and title for consistent styling */
 .navbar-container {
     width: 100%;
@@ -125,8 +131,8 @@
     transition: background 0.2s, color 0.2s;
 }
 .navbar-links a:hover, .navbar-links a.active {
-    background: #185a9d;
-    color: #43cea2;
+    background: linear-gradient(90deg, #43cea2 0%, #bfae7c 100%);
+    color: #185a9d;
 }
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -223,3 +229,24 @@ button:hover {
 .hidden {
     display: none;
 }
+
+/* Contact section colourful card */
+#info > div,
+.contact-card {
+    background: linear-gradient(135deg, #f7f6ee 0%, #43cea2 60%, #bfae7c 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(67,206,162,0.18), 0 2px 8px rgba(24,90,157,0.10);
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    border: 1.5px solid #43cea2;
+    color: #185a9d;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+#info > div:hover,
+.contact-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(67,206,162,0.28), 0 4px 16px rgba(24,90,157,0.18);
+    transform: translateY(-4px) scale(1.03);
+    background: linear-gradient(135deg, #bfae7c 0%, #43cea2 100%);
+}
+

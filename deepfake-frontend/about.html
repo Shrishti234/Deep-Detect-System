@@ -17,7 +17,8 @@
                 <a href="features.html">Features</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
-                <a href="login.html">Login</a>
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="#" id="logoutLink" style="display:none;">Logout</a>
             </nav>
         </div>
     </header>
@@ -40,5 +41,26 @@
             </div>
         </section>
     </main>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Agar user login hai toh logout dikhayein, login hide karein
+    var loginLink = document.getElementById('loginLink');
+    var logoutLink = document.getElementById('logoutLink');
+    if(loginLink && logoutLink) {
+        if(localStorage.getItem('isLoggedIn') === 'true') {
+            loginLink.style.display = 'none';
+            logoutLink.style.display = 'inline-block';
+        } else {
+            loginLink.style.display = 'inline-block';
+            logoutLink.style.display = 'none';
+        }
+        // Logout par click karne par logout ho jaye
+        logoutLink.onclick = function() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        };
+    }
+});
+</script>
 </body>
 </html>
